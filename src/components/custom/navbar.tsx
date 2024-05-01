@@ -1,54 +1,56 @@
 'use client'
 import React, { useState } from "react"
-import { Store, Menu, ShoppingCart, BadgeDollarSign, LogOut, User, Settings, CreditCard, ShoppingBag } from "lucide-react"
+import { Store, Menu, ShoppingCart, BadgeDollarSign, LogOut, User, Settings, CreditCard, ShoppingBag, Heart } from "lucide-react"
 import { Separator } from "../ui/separator"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip"
 import Link from "next/link"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet"
+import If from "./if"
 
 export default function Navbar(){
     const [sheet, setSheet] = useState<'menu' | 'cart'>('menu')
+    const [expanded, setExpanded] = useState<boolean>(window.innerWidth > 768)
     return(
         <TooltipProvider>
             <Sheet>
-                <div className="aside hidden pb-8 bg-white rounded w-14 h-5/6 fixed top-14 left-5 sm:flex flex-col justify-between">
+                <div className={`aside pb-8 bg-white shadow-md rounded overflow-hidden w-10 sm:w-14 ${!expanded ? 'h-[60px] sm:h-[85px]' : 'h-3/6 sm:h-4/6'} fixed top-2 left-1 sm:top-14 sm:left-5 flex z-50 flex-col justify-between`}>
                     <div className="nav">
-                        <div className="w-full py-8">
-                            <BadgeDollarSign className="mx-auto cursor-pointer hover:text-yellow-400"/>
+                        <div className="w-full py-4 sm:py-8">
+                            <BadgeDollarSign onClick={() => setExpanded(!expanded)} className="mx-auto cursor-pointer hover:text-yellow-400"/>
                         </div>
-                        <Separator/>
-                        <div className="flex flex-col items-center gap-8 pt-4">
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <SheetTrigger asChild>
-                                        <Menu onClick={() => setSheet('menu')} className="cursor-pointer"/>
-                                    </SheetTrigger>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p>Menu</p>
-                                </TooltipContent>
-                            </Tooltip>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <Link href={'/'}>
-                                        <Store className="cursor-pointer"/>
-                                    </Link>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p>Shop</p>
-                                </TooltipContent>
-                            </Tooltip>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <SheetTrigger asChild>
-                                        <ShoppingCart onClick={() => setSheet('cart')} className="cursor-pointer"/>
-                                    </SheetTrigger>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p>Cart</p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </div>
+                            <Separator/>
+                            <div className="flex flex-col items-center gap-8 pt-4">
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <SheetTrigger asChild>
+                                            <Menu onClick={() => setSheet('menu')} className="cursor-pointer"/>
+                                        </SheetTrigger>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Menu</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <Link href={'/'}>
+                                            <Store className="cursor-pointer"/>
+                                        </Link>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Shop</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <SheetTrigger asChild>
+                                            <ShoppingCart onClick={() => setSheet('cart')} className="cursor-pointer"/>
+                                        </SheetTrigger>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Cart</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </div>
                     </div>
                     <Tooltip>
                         <TooltipTrigger>
@@ -70,6 +72,10 @@ export default function Navbar(){
                             <div className="flex cursor-pointer gap-4 mx-auto w-10/12 rounded p-2 bg-[#FFFFFF]">
                                 <User/>
                                 <p>My profile</p>
+                            </div>
+                            <div className="flex cursor-pointer gap-4 mx-auto w-10/12 rounded p-2 bg-[#FFFFFF]">
+                                <Heart/>
+                                <p>Favorite List</p>
                             </div>
                             <div className="flex cursor-pointer gap-4 mx-auto w-10/12 rounded p-2 bg-[#FFFFFF]">
                                 <ShoppingBag/>

@@ -1,7 +1,7 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "../ui/button";
-import { Heart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion"
 export default function HighlightProduct(){
     return (
@@ -12,8 +12,8 @@ export default function HighlightProduct(){
                     <h2 className="font-bold text-base sm:text-lg">SmartWatch</h2>
                     <p>$240.90</p>
                 </div>
-                <div className="actions flex">
-                    <Button className="w-20" variant="ghost">Add to cart</Button>
+                <div className="actions flex gap-1">
+                    <Button><ShoppingCart/></Button>
                     <Button className="bg-white hover:bg-red-300"><Heart className="text-red-500"/></Button>
                 </div>
             </div>

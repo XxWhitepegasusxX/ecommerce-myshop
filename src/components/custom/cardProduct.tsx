@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { Button } from '../ui/button'
+import { Heart, ShoppingCart } from "lucide-react";
 
 interface Item{
     item: {
@@ -20,8 +21,8 @@ function CardProduct({item}: Item) {
             <p>{item.price}</p>
             </div>
             <div className="actions flex gap-1">
-            <Button variant="ghost">Add to cart</Button>
-            <Button>Like</Button>
+            <Button><ShoppingCart/></Button>
+            <Button className="bg-white hover:bg-red-300"><Heart className="text-red-500"/></Button>
             </div>
         </div>
     </div>

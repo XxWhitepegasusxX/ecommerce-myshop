@@ -9,7 +9,7 @@ import If from "./if"
 
 export default function Navbar(){
     const [sheet, setSheet] = useState<'menu' | 'cart'>('menu')
-    const [expanded, setExpanded] = useState<boolean>(window.innerWidth > 768)
+    const [expanded, setExpanded] = useState<boolean>(false)
     return(
         <TooltipProvider>
             <Sheet>

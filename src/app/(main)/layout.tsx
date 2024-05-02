@@ -1,3 +1,4 @@
+import Footer from "@/components/custom/footer";
 import "../globals.css";
 import Navbar from "@/components/custom/navbar";
 import Searchbar from "@/components/custom/searchbar";
@@ -13,6 +14,7 @@ export default function MainLayout({
       <Searchbar/>
       <Navbar/>
       <body>{children}</body>
+      <Footer/>
     </html>
   );
 }

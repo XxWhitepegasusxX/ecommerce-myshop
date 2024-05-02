@@ -25,6 +25,13 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        xs: "480px",
+        xxs: "360px",
+      },
+      fontSize: {
+        '2xs': '0.75rem',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

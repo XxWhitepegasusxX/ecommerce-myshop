@@ -4,7 +4,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { Button } from "./button";
-import CardProduct from "../custom/cardProduct";
+import CardProduct from "../custom/card/cardProduct";
 
 export const InfiniteMovingCards = ({
   items,
@@ -15,7 +15,7 @@ export const InfiniteMovingCards = ({
 }: {
   items: {
     name: string,
-    price: string,
+    price: number,
     image: string
   }[];
   direction?: "left" | "right";

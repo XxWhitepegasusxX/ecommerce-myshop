@@ -19,12 +19,13 @@ interface Item{
 
 function CardProduct({item}: Item) {
   // TODO Add query to popular products
-  const [inCart, setInCart] = useState<boolean>(false)
-  const [inFavorite, setInFavorite] = useState<boolean>(false)
   const { toast } = useToast()
+  const items = useCartStore((state) => state.items)
   const add = useCartStore((state) => state.add)
   const remove = useCartStore((state) => state.remove)
-  
+  const [inCart, setInCart] = useState<boolean>(items.some(cartItem => cartItem.name === item.name))
+  const [inFavorite, setInFavorite] = useState<boolean>(false)
+
   function handleAddToCart(){
     toast({
         title: "Success",
@@ -36,7 +37,6 @@ function CardProduct({item}: Item) {
         remove(item)
     }
     setInCart(!inCart)
-
   }
   function handleAddToFavorite(){
       toast({

@@ -1,7 +1,7 @@
 import Footer from "@/components/custom/footer";
 import "../globals.css";
 import Navbar from "@/components/custom/navbar";
-import Searchbar from "@/components/custom/searchbar";
+import CartIcon from "@/components/custom/cartIcon";
 
 
 export default function MainLayout({
@@ -11,7 +11,7 @@ export default function MainLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <Searchbar/>
+      <CartIcon/>
       <Navbar/>
       <body>{children}</body>
       <Footer/>

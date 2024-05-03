@@ -23,7 +23,7 @@ const useCartStore = create<CartState>()((set) => ({
   add: (item) => set((state) => {
     const existingItem = state.items.find(i => i.name === item.name);
     if (existingItem) {
-      return { items: state.items.map(i => i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i) };
+      return {items: [...state.items]}
     }
     return { items: [...state.items, { ...item, quantity: 1 }] };
   }),

@@ -20,11 +20,11 @@ function CartSheet() {
             <CartProductCard item={item} key={item.name + idx}/>
             ))}
         </div>
+        <div className="w-full absolute bottom-4 flex flex-col gap-2">
+          <p className='text-lg font-bold'>Total: ${total.toFixed(2)}</p>
+          <Button className='w-full'>Buy Now</Button>
+        </div>
       </If>
-      <div className="w-full absolute bottom-4 flex flex-col gap-2">
-        <p className='text-lg font-bold'>Total: ${total.toFixed(2)}</p>
-        <Button className='w-full'>Buy Now</Button>
-      </div>
     </div>
   )
 }
